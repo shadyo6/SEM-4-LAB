@@ -1,0 +1,40 @@
+create table actor(
+    actId int,
+    actName varchar(15),
+    actGender varchar(5),
+    primary key(actId)
+);
+create table director(
+    dirId int,
+    dirName varchar(20),
+    dirPhone int,
+    primary key(dirId)
+);
+create table movies(
+    movId int,
+    movTitle varchar(15),
+    movYear int,
+    movLang varchar(15),
+    dirId int,
+    primary key(movId),
+    foreign key (dirId) references director(dirId)
+);
+create table movieCast(
+    movId int,
+    actId int,
+    role varchar(15),
+    foreign key (movId) references movies(movId),
+    foreign key (actId) references actor(actId)
+);
+create table rating(
+    movId int,
+    revStars real,
+    foreign key (movId) references movies(movId)
+);
+
+insert into actor values(&actId, '&actName', '&actGender');
+insert into director values(&dirId, '&dirName', &dirPhone);
+insert into movies values(&movId, '&movTitle', &movYear, '&movLang', &dirId);
+insert into movieCast values(&movId, &actId, '&movRole');
+insert into actor values(&movId, &revStars);
+

@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-myData = pd.read_csv("mtcars.csv")
+myData = pd.read_csv("Termwork8.csv")
 print(myData.to_string())
 print(".....table columns......")
 print("===============================")

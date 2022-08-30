@@ -13,7 +13,7 @@
 |    |                                                                           \__/'---'\__/             |    |
 |    |  shady:~$ sftp admin@10.10.1.12                                                                     |    |
 |    |  Password:                                                                                          |    |
-|    |  We trust you have received the usual lecture from the local the local System Administrator.        |    |
+|    |  We trust you have received the usual lecture from the local System Administrator.                  |    |
 |    |  It usually boils down to these three things:                                                       |    |
 |    |           #1) Do not delete any file                                                                |    |
 |    |           #2) Think before you copy, upon getting caught don't compromise the server.               |    |

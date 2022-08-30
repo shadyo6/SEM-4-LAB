@@ -1,0 +1,104 @@
+create table department(
+dno int,
+dname varchar(20),
+dloc varchar(10),
+hod_fid int,
+budget int,
+primary key(dno)
+);
+
+create table faculty(
+fid int,
+fname varchar(20),
+lname varchar(20),
+dob date,
+doj date,
+gender varchar(6),
+address varchar(100),
+city varchar(20),
+salary int,
+designation varchar(10),
+dno int,
+primary key(fid),
+foreign key(dno) references department(dno)
+);
+
+alter table department add foreign key (hod_fid) references faculty(fid);
+
+create table student(
+usn varchar(10)
+fname varchar(20),
+gender char(1),
+address varchar(20),
+sem int,
+bdate date,
+dno int,
+primary key(usn),
+foreign key(dno) references department(dno)
+);
+
+create table subject(
+sub_code varchar(10)
+sub_name varchar(10),
+type varchar(10),
+credit int,
+primary key(sub_code)
+);
+
+create table teaches(
+fid int,
+sub_code varchar(10),
+hours int,
+primary key(fid,sub_code),
+foreign key(fid) references faculty(fid),
+foreign key(sub_code) references subject(sub_code)
+);
+
+create table test(
+test_no int,
+ia_date date,
+time int,
+primary key(test_no)
+)
+
+create table score(
+usn varcahr(10),
+sub_code varchar(10),
+ia_marks int,
+primary key(usn,sub_code, test_no),
+foreign key(sub_code) references subject(sub_code),
+foreign key(test_no) references test(test_no)
+);
+
+create table attendance(
+usn varchar(10),
+sub_code varchar(10),
+at_date date,
+at_time int,
+status char(2),
+primary key(usn,sub_code,at_date),
+foreign key(usn) references student(usn),
+foreign key(sub_code) references subject(sub_code)
+);
+
+create table Parent(
+	usn varchar(10),
+	pname varchar(10),
+	address varchar(15),
+	city varchar(15),
+	pincode int,
+	cell_no int,
+	primary key(usn,pname),
+	foreign key(usn) references student(usn));
+
+insert statements
+
+insert into department values(11,'CSE','cc',1,8);
+insert into faculty values(1,'Vijay','R','12-Dec-1980','M','Tilakwadi','Belgaum',11000,'Professor,11');
+insert into student values('2GI20CS120','Sahil','H','M','Tilakwadi',2,9482963117,'15-MAR-2002',11);
+insert into subject values('18CS41','SE','core',3);
+insert into teaches values(1,'18CS41',20)
+insert into test values(1,'28-JUN-2022',10);
+insert into score values('2GI20CS120','18CS41',23);
+insert into attendance values('2GI20CS120','18CS41','01-JUL-2022','10-11','p');
+insert into parent values('2GI20CS120','Halgekar','Tilakwadi','Belagavi','590001',6666666);

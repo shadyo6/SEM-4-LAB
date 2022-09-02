@@ -11,7 +11,7 @@ int main(void)
 {
     int n,i,j;
     int low , high , mid;
-    clock_t s , e ;
+    clock_t s, e;
     double  cpu_exe_t;
     printf("\nPlease enter the size of the array: ");
     scanf("%d",&n);
@@ -33,7 +33,7 @@ int main(void)
     //cpu_exe_t=(double)(e-s)/CLOCKS_PER_SEC;
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
-        printf("%d\t",A[i]);
+        printf("%d\t",B[i]);
     printf("\nCPU execution time is %lf",cpu_exe_t);
     return 0;
 }
@@ -66,6 +66,4 @@ void merge(int low ,int mid ,int high)
     while(j<=high){
         B[k++]=A[j++];
     }
-    for(i=low ; i<=high ; i++)
-        A[i]=B[i];
 }

@@ -42,7 +42,7 @@ void mergeSort(int low ,int high)
     if(low<high)
     {
         //mid = (low+high)/2;
-        int mid = high + (low - high)/2;
+        int mid = low + (high-low)/2;   //To avoid integer overflow
         mergeSort(low,mid);
         mergeSort(mid+1,high);
         merge(low,mid,high);

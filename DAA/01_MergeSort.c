@@ -29,8 +29,7 @@ int main(void)
     for(i=0;i<1000;i++)
     mergeSort(low,high);
     e=clock();
-    //cpu_exe_t=(double)(e-s)/CLK_TCK;
-    cpu_exe_t=(double)(e-s)/CLOCKS_PER_SEC;
+    cpu_exe_t=(double)(e-s)/CLK_TCK;
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
         printf("%d\t",B[i]);

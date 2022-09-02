@@ -21,7 +21,7 @@ int main(void)
     for(i=0;i<n;i++)
         A[i]=rand()%100;
 
-    printf("\nThe array elements are :\n");
+    printf("\nThe array elements are: \n");
     for(i=0;i<n;i++)
         printf("%d\t",A[i]);
     s=clock();
@@ -30,6 +30,7 @@ int main(void)
     mergeSort(low,high);
     e=clock();
     cpu_exe_t=(double)(e-s)/CLK_TCK;
+    //cpu_exe_t=(double)(e-s)/CLOCKS_PER_SEC;
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
         printf("%d\t",A[i]);
@@ -38,9 +39,10 @@ int main(void)
 }
 void mergeSort(int low ,int high)
 {
-    int mid;
-    if(low<high){
-        mid = (low+high)/2;
+    if(low<high)
+    {
+        //mid = (low+high)/2;
+        int mid = high + (low - high)/2;
         mergeSort(low,mid);
         mergeSort(mid+1,high);
         merge(low,mid,high);
@@ -49,26 +51,20 @@ void mergeSort(int low ,int high)
 void merge(int low ,int mid ,int high)
 {
     int i=low , j=mid+1 , k=low;
-    while(i<=mid && j<=high){
+    while(i<=mid && j<=high)
+    {
         if(A[i]<=A[j]){
-            B[k]=A[i];
-            i++;
+            B[k++]=A[i++];
         }
         else{
-            B[k]=A[j];
-            j++;
+            B[k++]=A[j++];
         }
-        k++;
     }
     while(i<=mid){
-        B[k]=A[i];
-         k++;
-         i++;
+        B[k++]=A[i++];
     }
     while(j<=high){
-        B[k]=A[j];
-         k++;
-         j++;
+        B[k++]=A[j++];
     }
     for(i=low ; i<=high ; i++)
         A[i]=B[i];

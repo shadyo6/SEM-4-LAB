@@ -54,8 +54,8 @@
                `-------------------------------------------------------------------------------'
 
 This repo is contributed and maintained by
--anonymouso7
--spacedust10
+-shady
+-spacedust
 
 if you are a contributer please feel free to add your name to the list
 </pre>

@@ -79,8 +79,8 @@ int main()
         quickSort(low,high);
     }
     e = clock();
-    //cpu_exe_t = (double)(e-s)/CLK_TCK;
-    cpu_exe_t = (double)(e-s)/CLOCKS_PER_SEC;
+    cpu_exe_t = (double)(e-s)/CLK_TCK;
+    //cpu_exe_t = (double)(e-s)/CLOCKS_PER_SEC;
 
     printf("\nThe sorted array is: \n");
     for(i=0;i<n;i++)

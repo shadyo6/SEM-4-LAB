@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<time.h>
-#define MAX 10000
+#define MAX 500
 int A[MAX] , B[MAX];
 
 void merge(int,int,int);
@@ -25,16 +25,16 @@ int main(void)
     for(i=0;i<n;i++)
         printf("%d\t",A[i]);
     s=clock();
-   // for(j=0;j<10000;j++)            //Delay loops
-    for(i=0;i<10000;i++)
+    for(j=0;j<1000;j++)            //Delay loops
+    for(i=0;i<1000;i++)
     mergeSort(low,high);
     e=clock();
-    cpu_exe_t=(double)(e-s)/CLK_TCK;
-    //cpu_exe_t=(double)(e-s)/CLOCKS_PER_SEC;
+    //cpu_exe_t=(double)(e-s)/CLK_TCK;
+    cpu_exe_t=(double)(e-s)/CLOCKS_PER_SEC;
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
         printf("%d\t",B[i]);
-    printf("\nCPU execution time is %lf",cpu_exe_t);
+    printf("\nCPU execution time is %lf\n",cpu_exe_t);
     return 0;
 }
 void mergeSort(int low ,int high)

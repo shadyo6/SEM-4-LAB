@@ -55,7 +55,7 @@
 
 This repo is contributed and maintained by
 -anonymouso7
--stardust
+-spacedust10
 
 if you are a contributer please feel free to add your name to the list
 </pre>

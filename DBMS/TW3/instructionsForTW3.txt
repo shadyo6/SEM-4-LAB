@@ -15,8 +15,8 @@ insert into Flights values(258,'bangalore','delhi',200,'01-aug-11','01-aug-11',6
 insert into Flights values(259,'bangalore','mangalore',200,'01-aug-11','01-aug-11',8000.00);
 
 create table Certified(
-	Eid int references Employees181(Eid),
-	Aid int references Aircrafts181(Aid),
+	Eid int references Employees(Eid),
+	Aid int references Aircrafts(Aid),
 	primary key(Eid,Aid)
 );
 
@@ -61,15 +61,15 @@ insert into Certified values(103,687);
 * TO VERIFY THE  VALUES ARE INSERTED, USE select * from <tablename>;
 
 Queries can be asked:
-* select * from Flights181 where fromPlace = 'bangalore';
-* select COUNT(FlightNo) from Flights181 where(fromPlace = 'bangalore' and toPlace = 'frankfut');
-* select * from Aircrafts181 where (range >= 1000 and range <= 1500); OR 
-  select * from Aircrafts181 where range between 1000 and 1500;
-* select eid,ename from employees181 where(salary = 3000 or salary = 4000 or salary = 5000); OR 
-  select eid, ename from employees181 where(salary in (3000,4000,5000,6000));
-* select aid,aname from aircrafts181 where (aname like '%er'); or 
-  select aid,aname from aircrafts181 where (aname like '%e%'); or 
-  select aid,aname from aircrafts181 where (aname like '%B'); or
-  select * from aircrafts181 where (aname like '_____%');
+* select * from Flights where fromPlace = 'bangalore';
+* select COUNT(FlightNo) from Flights where(fromPlace = 'bangalore' and toPlace = 'frankfut');
+* select * from Aircrafts where (range >= 1000 and range <= 1500); OR 
+  select * from Aircrafts where range between 1000 and 1500;
+* select eid,ename from employees where(salary = 3000 or salary = 4000 or salary = 5000); OR 
+  select eid, ename from employees where(salary in (3000,4000,5000,6000));
+* select aid,aname from aircrafts where (aname like '%er'); or 
+  select aid,aname from aircrafts where (aname like '%e%'); or 
+  select aid,aname from aircrafts where (aname like '%B'); or
+  select * from aircrafts where (aname like '_____%');
 
 	

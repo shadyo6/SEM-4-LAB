@@ -14,6 +14,15 @@ insert into Flights values(257,'bangalore','delhi',200,'01-aug-11','01-aug-11',5
 insert into Flights values(258,'bangalore','delhi',200,'01-aug-11','01-aug-11',6000.00);
 insert into Flights values(259,'bangalore','mangalore',200,'01-aug-11','01-aug-11',8000.00);
 
+/*
+//Mysql date syntax YYYY-MM-DD (ignore)
+insert into Flights values(255,'bangalore','frankfut',200,'2011-08-01','2011-08-01',5000.00);
+insert into Flights values(256,'bangalore','frankfut',200,'2011-08-01','2011-08-01',8000.00);
+insert into Flights values(257,'bangalore','delhi',200,'2011-08-01','2011-08-01',5000.00);
+insert into Flights values(258,'bangalore','delhi',200,'2011-08-01','2011-08-01',6000.00);
+insert into Flights values(259,'bangalore','mangalore',200,'2011-08-01','2011-08-01',8000.00);
+*/
+
 create table Certified(
 	Eid int references Employees(Eid),
 	Aid int references Aircrafts(Aid),

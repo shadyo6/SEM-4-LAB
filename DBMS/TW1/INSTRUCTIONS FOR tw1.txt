@@ -30,8 +30,8 @@ host varchar(50) primary key,
 guest varchar(50) primary key,
 game_date date not null,
 score int not null,
-foreign key(host) references TEAM(name),
-foreign key(host) references TEAM(name),
+foreign key(host) references TEAM(name) ON DELETE SET NULL,,
+foreign key(host) references TEAM(name) ON DELETE SET NULL,,
 );
 
 /*first add data to PLAYER, dont add value for Tname*/

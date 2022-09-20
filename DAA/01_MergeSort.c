@@ -30,6 +30,7 @@ int main(void)
     mergeSort(low,high);
     e=clock();
     cpu_exe_t=(double)(e-s)/CLK_TCK;
+    //cpu_exe_t = (e-s)/CLOCKS_PER_SEC;
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
         printf("%d\t",B[i]);
@@ -65,4 +66,6 @@ void merge(int low ,int mid ,int high)
     while(j<=high){
         B[k++]=A[j++];
     }
+    for(i=low ; i<=high ; i++)
+        A[i]=B[i];
 }

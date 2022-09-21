@@ -24,12 +24,14 @@ int main(void)
         printf("%d\t",A[i]);
     
     s=clock();
-    for(j=0;j<1000000;j++)            //Delay loops
+    
+    for(j=0;j<1000;j++)            //Delay loops
+    for(i=0;j<1000;i++)
         mergeSort(0,n-1);
     e=clock();
     
-    cpu_exe_t=(double)(e-s)/CLK_TCK;
-    //cpu_exe_t = (e-s)/CLOCKS_PER_SEC;
+    //cpu_exe_t=(double)(e-s)/CLK_TCK;
+    cpu_exe_t = (e-s)/CLOCKS_PER_SEC;
     
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)

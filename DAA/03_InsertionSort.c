@@ -10,39 +10,40 @@ void insertionSort(int);
 
 int main()
 {
-	srand(time(0))
+	srand(time(0));
 	int i,j,n;
 	clock_t s,e;
 	double cpu_exe_time;
-	
+
 	printf("Enter number of elements: ");
 	scanf("%d",&n);
-	
+
 	for(i=0 ; i<n ; i++)
 		A[i] = rand()%range;
-	
-	printf("\n the array elements are: \n");
+
+	printf("\n\nThe array elements are: \n");
 	for(i=0 ; i<n ; i++)
 		printf("%d  ",A[i]);
-	
+
 	s = clock();
-	for(int k=0 ; k<100000 ; k++)
+	for(j=0 ; j<1000 ; j++)
+	for(i=0 ; i<1000 ; i++)
 		insertionSort(n);
 	e = clock();
-	
+
 	//cpu_exe_time = (double)(e-s)/CLK_TCK;
 	cpu_exe_time = (double)(e-s)/CLOCKS_PER_SEC;
-	printf("\nOrder of sorted elements: \n");
+	printf("\n\nOrder of sorted elements: \n");
 	for(i=0 ; i<n ; i++)
 		printf("%d  ",A[i]);
-	
-	printf("\nCPU execution time:  %lf \n",cpu_exe_t);
+
+	printf("\n\nCPU execution time:  %lf \n",cpu_exe_time);
 	return 0;
 }
 
 void insertionSort(int n)
 {
-	int min;
+	int min,i,j;
 	for(i=1 ; i<n ; i++)
 	{
 		min = A[i];

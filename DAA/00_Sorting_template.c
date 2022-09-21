@@ -3,7 +3,7 @@
 #include<time.h>
 int main() {
 	int n,i;
-	double cpu_exetime;
+	double cpu_exe_time;
 	clock_t s,e;
 	srand(time(0));
 	printf("\nEnter the size of the array: ");
@@ -18,11 +18,11 @@ int main() {
 		
 	}
 	e=clock();
-	cpu_exetime=double(e-s)/CLK_TCK;
-		
+	//cpu_exe_time=double(e-s)/CLK_TCK;
+	cpu_exe_time=double(e-s)/CLOCK_PER_SEC;
 	printf("\nThe elements are: ");
 	for(i=0;i<n;i++)
 		printf("%d\t",arr[i]);
-	printf("CPU execution time:%lf",cpu_exetime);
+	printf("CPU execution time: %lf",cpu_exe_time);
 	return 0;
 }

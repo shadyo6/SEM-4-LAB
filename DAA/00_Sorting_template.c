@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<time.h>
-int main() {
-	int n,i;
+int main()
+{
+	srand(time(0)); 				//set the sed to time(0) to generate random seeds evertime the code runs
+	int n,i,j;
 	double cpu_exe_time;
 	clock_t s,e;
-	srand(time(0));
 	printf("\nEnter the size of the array: ");
 	scanf("%d",&n);
 	int arr[n];
@@ -13,9 +14,10 @@ int main() {
 		arr[i]=rand()%100;
 		
 	s=clock();
-	for(i=0;i<1000000;i++)      //Delay loops
+	for(j=0;j<1000;j++)	 			//use upto 1000 to avoid integer overflow
+	for(i=0;i<1000;i++)      			//Delay loops
 	{
-		
+		//sorting Function()
 	}
 	e=clock();
 	//cpu_exe_time=double(e-s)/CLK_TCK;

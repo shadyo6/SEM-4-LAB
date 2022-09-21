@@ -14,7 +14,7 @@ tname varchar(50) references TEAM(name),
 from_date date
 );
 
-alter table TEAM add team_fk foreign key(PID) references PLAYER(playerID);
+alter table TEAM add constraint team_fk foreign key(PID) references PLAYER(playerID);
 
 create table INJURY_RECORDS(
 inj_date date not null,

@@ -10,30 +10,31 @@ void mergeSort(int,int);
 int main(void)
 {
     int n,i,j;
-    int low , high , mid;
     clock_t s, e;
     double  cpu_exe_t;
     printf("\nPlease enter the size of the array: ");
     scanf("%d",&n);
-    low=0;
-    high=n-1;
 
+    srand(time(0));
     for(i=0;i<n;i++)
         A[i]=rand()%100;
 
     printf("\nThe array elements are: \n");
     for(i=0;i<n;i++)
         printf("%d\t",A[i]);
+    
     s=clock();
-    for(j=0;j<1000;j++)            //Delay loops
-    for(i=0;i<1000;i++)
-    mergeSort(low,high);
+    for(j=0;j<1000000;j++)            //Delay loops
+        mergeSort(0,n-1);
     e=clock();
+    
     cpu_exe_t=(double)(e-s)/CLK_TCK;
     //cpu_exe_t = (e-s)/CLOCKS_PER_SEC;
+    
     printf("\nThe sorted array is :\n");
     for(i=0;i<n;i++)
         printf("%d\t",B[i]);
+    
     printf("\nCPU execution time is %lf\n",cpu_exe_t);
     return 0;
 }

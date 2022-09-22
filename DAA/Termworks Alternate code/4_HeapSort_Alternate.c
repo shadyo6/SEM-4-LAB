@@ -1,78 +1,92 @@
 #include <stdio.h>
-#include<stdlib.h>
-#include<time.h>
-#define MAX 10000
-void getdata(int arr[])
+#include <stdlib.h>
+#include <time.h>
+
+#define range 500
+
+void heapSort(int [], int);
+void buildHeap(int [], int);
+void maxHeapify(int [], int,int);
+void swap(int *, int *);
+
+int main(void)
 {
- int i;
-  //generating random numbers
-  for(i=0;i<MAX;i++)
-  {
-     arr[i]=rand();
+    srand(time(0));
+    int n,i,j;
+    clock_t start,end;
+    double cpu_exec_time;
+
+    printf("\nEnter the value of n: ");
+    scanf("%d",&n);
+
+    int *arr = (int*)malloc(n*sizeof(int));
+    if (arr == NULL)
+    {
+        printf("\nMemory not allocated.\n");
+        exit(0);
     }
-} 
+    
+    for(i=0;i<n;i++)
+        arr[i] = rand()%range;
 
-void heap_bottom_up(int n,int a[])
-{
-	int i,j,p,k,v,heap;
-	p = n/2;
-	
-	for(i=p;i>0;i--)
-	{
-		heap = 0;
-		k = i;
-		v = a[k];
-		
-		while(!heap&&((2*k)<=n))
-		{
-			j = 2*k;
-			if(j<n)
-			{
-				if(a[j]<a[j+1])
-					j = j+1;
-			}
-			if(v>=a[j])
-				heap = 1;
-			else
-			{
-				a[k] = a[j];
-				k = j;
-			}
-		}
-		a[k] = v;
-	}
+    printf("\naArray elements: \n");
+    for(i=0;i<n;i++)
+        printf("%d\t",arr[i]);
+    
+    start = clock();
+    for(i=0;i<1000;i++)
+    for(j=0;j<1000;j++)
+        heapSort(arr,n);
+    end = clock();
+    
+    
+    //cpu_exec_time = (double) (end - start) / CLK_TCK;    
+    cpu_exec_time = (double) (end - start) / CLOCKS_PER_SEC;
+
+    printf("\nSorted array: \n");
+    for(i=0;i<n;i++)
+        printf("%d\t",arr[i]);
+    printf("\nCPU execution time = %lf\n", cpu_exec_time);
+    free(arr);
+    return 0;
 }
 
-void heapsort(int n,int a[])
+void heapSort(int arr[], int n)
 {
-	int i,temp;
-	heap_bottom_up(n,a);
-	for(i=n;i>1;i--)
-	{
-		temp = a[1];
-		a[1] = a[i];
-		a[i] = temp;
-		heap_bottom_up(i-1,a);
-	}
+    int i;
+    buildHeap(arr,n);
+    
+    for(i=n-1; i>=1; i--)
+    {
+         swap(&arr[0], &arr[i]);
+         maxHeapify(arr,i-1,0);
+    }
 }
 
-int main()
+void buildHeap(int arr[], int n)
 {
-	int i,a[MAX],j,n;
-	clock_t start,end;
-	double duration;
-	//printf("ENTER THE SIZE OF ARRAY : ");
-	//scanf("%d",&n);
-	
-	//printf("ENTER %d ELEMENTS - \n",n);
-	//for(i=1;i<=n;i++)
-	//	scanf("%d",&a[i]);
-	getdata(a);	
-	clock_t t;
-    t = clock();
-    heapsort(MAX,a);
-    t = clock() - t;
-    double time_taken = ((double)t) / CLOCKS_PER_SEC; // in seconds
-    printf("fun() took %f seconds to execute \n", time_taken);
-	return 0;
+    int i;
+    for(i=(n-2)/2 ; i>=0 ; i--)
+        maxHeapify(arr,n,i);
+}
+void maxHeapify(int arr[], int n, int i)
+{
+    int largest=i, left=2*i+1, right=2*i+2;
+   
+    if(left<n && arr[left]>arr[largest])
+        largest = left;
+    if(right<n && arr[right] > arr[largest])
+        largest = right;
+    if(largest != i)
+    {
+        swap(&arr[largest] ,&arr[i]);
+        maxHeapify(arr,n,largest);
+    }
+}
+
+void swap(int *p, int *q)
+{
+    int t = *p;
+    *p = *q;
+    *q = t;
 }

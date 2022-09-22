@@ -7,7 +7,8 @@
 int A[max];
 
 void heapSort(int);
-void heapify(int,int);
+void buildHeap(int);
+void maxHeapify(int,int);
 void swap(int *, int *);
 
 int main(void)
@@ -47,29 +48,33 @@ int main(void)
 void heapSort(int n)
 {
     int i;
-    for(i=n/2 ; i>0 ; i--)
-        heapify(n,i);
+    buildHeap(n);
     
-    for(i=n; i>1; i--)
+    for(i=n-1; i>=1; i--)
     {
-         swap(&A[i], &A[1]);
-         heapify(i-1,1);
+         swap(&A[0], &A[i]);
+         maxHeapify(i-1,0);
     }
 }
 
-void heapify(int n, int i)
+void buildHeap(int n)
 {
-    int largest, left, right;
-    largest = i;
-    left = 2*i; right = 2*i+1;
-    if(left<=n && A[left]>A[largest])
+    int i;
+    for(i=(n-2)/2 ; i>=0 ; i--)
+        maxHeapify(n,i);
+}
+void maxHeapify(int n, int i)
+{
+    int largest=i, left=2*i+1, right=2*i+2;
+   
+    if(left<n && A[left]>A[largest])
         largest = left;
-    if(right<=n && A[right] > A[largest])
+    if(right<n && A[right] > A[largest])
         largest = right;
     if(largest != i)
     {
         swap(&A[largest] ,&A[i]);
-        heapify(n, largest);
+        maxHeapify(n, largest);
     }
 }
 

@@ -18,8 +18,7 @@ int main(void)
             if(cost[i][j]==0)
                 cost[i][j]=infinity;
         }
-
-
+    
     visited[1]=1;
     while(ne<n)
     {
@@ -32,18 +31,15 @@ int main(void)
                     u=i;
                     v=j++;
                 }
-
+        
         if(visited[u]==0 || visited[v]==0)
         {
             printf("\nEdge %d:(%d %d) cost : %d",ne++,u,v,min);
-
             mincost+=min;
             visited[v]=1;
         }
-
         cost[u][v]=cost[v][u]=infinity;
     }
-
     printf("\nMinimum cost: %d\n" ,mincost);
     return 0;
 }

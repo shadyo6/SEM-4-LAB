@@ -50,7 +50,7 @@ void heapSort(int n)
     int i;
     buildHeap(n);
     
-    for(i=n-1; i>=1; i--)
+    for(i=n-1; i>0; i--)
     {
          swap(&A[0], &A[i]);
          maxHeapify(i-1,0);

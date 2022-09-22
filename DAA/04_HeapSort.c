@@ -14,7 +14,7 @@ void swap(int *, int *);
 int main(void)
 {
     srand(time(0));
-    int n,i,j,k;
+    int n,i,j;
     clock_t start,end;
     double cpu_exec_time;
 

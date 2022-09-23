@@ -1,0 +1,21 @@
+Which technique us used for quick-sort?
+-> divide and conquer technique
+Explain efficiency of search operation in AVL tree?
+-> O(n)
+Transitive closure means?
+-> An extension or superset of a binary relation such that whenever (a,b) and (b,c) are in the extension, (a,c) is also in the extension.
+Mention two examples where greedy method is quite powerful and works well.
+-> Krushkals, Prims and Huffman encoding
+state subset problem
+-> Subset sum problem is to find subset of elements whose sum adds up to a given number K
+List the first two steps of algorithm analysis of iterative algorithms
+-> 	Step1: Decide the input size
+	Step2: Identify basic operation
+Whats the worst case time efficiency of bubble sort?
+-> O(n^2)
+What is randomised QuickSort?
+-> Randomized quick sort chooses a random element as a pivot. 
+Give an example of transform and conquer
+-> GCD of a number, LCM of a number
+What type of graph is used for Warshall's algorithm?
+->Weighted graph

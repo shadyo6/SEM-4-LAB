@@ -1,0 +1,61 @@
+Termwork 3
+
+query 1. salaries more than 80000
+
+SELECT DISTINCT a.aname
+FROM aircraft a,certified c,employees e
+WHERE a.aid=c.aid
+AND c.eid=e.eid
+AND NOT EXISTS
+(SELECT *
+FROM employees e1
+WHERE e1.eid=e.eid
+AND e1.salary<80000);
+
+tell me how to dispaly the table
+select * from table-name
+
+query 2. for each pilot who is certified more than 3 aircrafts, find eid,ename and the
+max cruising range of the aircraft for which he is certified
+SELECT c.eid,MAX(cruisingrange)
+FROM certified c,aircraft a
+WHERE c.aid=a.aid
+GROUP BY c.eid
+HAVING COUNT(*)>3;
+
+query 3.Find the names of all pilots whose salary is less than the price of the cheapest route from Bangalore to Frankfurt.
+
+SELECT DISTINCT e.ename
+FROM employees e
+WHERE e.salary<
+(SELECT MIN(f.price)
+FROM flight f
+WHERE f.frm='Bangalore'
+AND f.too='Frankfurt');
+
+query 4.For all aircrafts with cruisingrange over 1000 kms,find the name of the aircraft and the average salary of all pilots certified for this aircraft.
+
+SELECT a.aid,a.aname,AVG(e.salary)
+FROM aircraft a,certified c,employees e
+WHERE a.aid=c.aid
+AND c.eid=e.eid
+AND a.cruisingrange>1000
+GROUP BY a.aid,a.aname;
+
+query 5.Find the names of pilots certified for some Boeing aircraft.
+
+SELECT distinct e.ename
+FROM employees e,aircraft a,certified c
+WHERE e.eid=c.eid
+AND c.aid=a.aid
+AND a.aname='Boeing';
+
+query 6.Find the aid's of all aircraft that can be used on routes from Bangalore to Delhi.
+
+SELECT a.aid
+FROM aircraft a
+WHERE a.cruisingrange>
+(SELECT MIN(f.distance)
+FROM flight f
+WHERE f.frm='Bangalore'
+AND f.too='Delhi');

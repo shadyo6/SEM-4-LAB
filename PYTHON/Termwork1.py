@@ -7,18 +7,18 @@ def enQueue(Queue):
 		item = int(input("Enter item to enqueue: "))	
 		Queue.append(item)
 
+def deQueue(Queue):
+    if(len(Queue) == 0):
+        print("Queue Underflow")
+    else:
+        return Queue.pop(0)
+        
 def dispQueue(Queue):
 	if(len(Queue) == 0):
 		print("Queue Empty")
 	else:
 		for item in Queue:
 			print(item, end='\t')
-
-def deQueue(Queue):
-	if(len(Queue) == 0):
-		print("Queue Underflow")
-	else:
-		return Queue.pop(0)
 
 def qFront(Queue):
 	if(len(Queue) == 0):

@@ -38,7 +38,7 @@ def highest(Courses):
 def main():
     Courses = {}
     while True:
-        opt = int(input("1: CourseAdd 2: DisplayCourse 3: DispAll 4: Highest 5:Exit \nEnter your optiion:"))
+        opt = int(input("1: CourseAdd 2: DisplayCourse 3: DispAll 4: Highest 5:Exit \nEnter your option:"))
 
         if opt == 1:
             add(Courses)

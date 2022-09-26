@@ -2,22 +2,22 @@ import csv
 
 def read(n):
     books=[]
-    for i in range(n) :
+    for i in range(0,n) :
         no,title,author,price=input("Enter number title author and price: ").split(',')
         price=float(price)
         books.append([no,title,author,price])
     with open("Books.csv","w",newline='') as f:
         w=csv.writer(f)
         w.writerows(books)
-    print( "Books are: ",books)
+    print("Books are: ",books)
 
 def AuthorSearch():
-    A=input("Enter author to search: ")
+    A = input("Enter author to search: ")
     flag=0
     with open("Books.csv") as f:
         r=csv.reader(f)
         for book in r:
-            if A== book[2]:
+            if A == book[2]:
                 flag=1
                 print("Book Details are: ",book[0],book[1],book[2],book[3])
         if flag==0:
@@ -37,7 +37,7 @@ def TitleSearch():
 
 def PriceSearch():
     try:
-        price=float(input("Enter price to search the books under that price2,Wit,Des Machale,500: "))
+        price=float(input("Enter price to search the books under that price: "))
         if price<=0:
             raise ValueError("Invalid Price")
         else:

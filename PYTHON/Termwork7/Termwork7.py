@@ -1,13 +1,22 @@
-if __name__ == '__main__':
-    myFile = open("Termwork7.txt")
-    allLines = myFile.read().splitlines()
-    avgMarks = 0
-    maxAvg = 0
-    for line in allLines:
-        (name,m1,m2,m3,m4,usn)=map(str,line.split(","))
-        avgMarks = (int(m1)+int(m2)+int(m3))/3
-        print(usn, "\t",m1,"\t",m2,"\t",m3,"\t",name)
-        print()
-        if(avgMarks > maxAvg):
-            maxAvg = avgMarks
-print("Max class %5.2f" %maxAvg)
+import numpy as np
+import csv
+
+data=np.loadtxt("in.txt",usecols=range(1,5),delimiter=",")
+print("Marks data: \n ",data)
+
+avg=np.array([])
+for mks in data:
+    avg=np.append(avg,round(np.mean(mks),2))
+
+print("Averages are: ")
+for avgMks in avg:
+    print(avgMks)
+
+with open("in.txt") as inF:
+    with open("out.txt","w") as outF:
+        reader=csv.reader(inF)
+        i = 0
+        for line in reader:
+            outF.write(line[5] + ' ' + str(avg[i]) + ' \n ')
+            i=i+1
+print(" class Topper has scored average mks : ", np.max(avg))

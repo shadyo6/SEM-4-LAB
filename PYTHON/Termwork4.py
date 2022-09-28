@@ -1,5 +1,3 @@
-# termwork_4
-
 class Person:
     def __init__(self, fname, lname, email):
         self.fname = fname

@@ -16,6 +16,7 @@ ttk.Label(frame, text="SecondNO:").grid(row=1,column=0,sticky=tk.E)
 second=tk.StringVar()
 ttk.Entry(frame,width=25,textvariable=second).grid(row=1,column=1)
 result=tk.StringVar()
+
 def add():
     FirstNO = float(first.get())
     SecondNO = float(second.get())

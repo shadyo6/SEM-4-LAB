@@ -24,12 +24,12 @@ def AuthorSearch():
             print("Book not found ")
 
 def TitleSearch():
-    A=input("Enter title to search: ")
+    A = input("Enter title to search: ")
     flag=0
     with open("Books.csv") as f:
         r=csv.reader(f)
         for book in r:
-            if A== book[1]:
+            if A == book[1]:
                 flag=1
                 print("Book Details are: ",book[0],book[1],book[2],book[3])
         if flag==0:

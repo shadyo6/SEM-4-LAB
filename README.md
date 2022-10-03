@@ -16,13 +16,7 @@
                ||____|___|___|___________________|___|___|____|  |___|_V_|___|  |Ins__|__|e_|  |
                |                                                                               |
                `-------------------------------------------------------------------------------'
-</pre>
 
-<p style="text-align:center;">
-<img src="https://github-readme-stats.vercel.app/api?username=shadyo6&show_icons=true&theme=onedark&hide=stars,issues">
-</p>
-
-<pre>
 This repo is contributed and maintained by
 -shady
 -spacedust
